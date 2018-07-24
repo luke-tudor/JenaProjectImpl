@@ -1,46 +1,26 @@
-﻿using System;
-using com.hp.hpl.jena.rdf.model;
-using jenaInterface;
+﻿using jenaInterface;
 using UnityEngine;
 
-public class MotionDetector : MonoBehaviour
+namespace LightControlSystem
 {
-
-    private StatementChanger _changer;
-    private BooleanChanger _trueChanger;
-    private BooleanChanger _falseChanger;
-
-    internal class BooleanChanger : LiteralObjectChanger
+    public class MotionDetector : MonoBehaviour
     {
-        private readonly bool _b;
 
-        public BooleanChanger(bool b)
+        private StatementChanger _changer;
+
+        void Start()
         {
-            _b = b;
+            _changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "meetingRoomMotionDetector", LCSEndpoint.PREFIX + "detectMotion");
         }
 
-        public void apply(Statement s)
+        private void OnTriggerEnter(Collider other)
         {
-            s.changeLiteralObject(_b);
+            _changer.changeLiteralObject(new ConcreteLiteralObjectChanger(s => s.changeLiteralObject(true)));
         }
-    }
 
-    void Start()
-    {
-        _changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "meetingRoomMotionDetector", LCSEndpoint.PREFIX + "detectMotion");
-        _trueChanger = new BooleanChanger(true);
-        _falseChanger = new BooleanChanger(false);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        _changer.changeLiteralObject(_trueChanger);
-        //LCSEndpoint.lcs.IsMotionDetected(true);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        _changer.changeLiteralObject(_falseChanger);
-        //LCSEndpoint.lcs.IsMotionDetected(false);
+        private void OnTriggerExit(Collider other)
+        {
+            _changer.changeLiteralObject(new ConcreteLiteralObjectChanger(s => s.changeLiteralObject(false)));
+        }
     }
 }

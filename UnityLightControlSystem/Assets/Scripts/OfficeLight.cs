@@ -1,60 +1,27 @@
-﻿using com.hp.hpl.jena.rdf.model;
-using UnityEngine;
-using jenaInterface;
+﻿using UnityEngine;
 
-public class OfficeLight : MonoBehaviour
+namespace LightControlSystem
 {
-    private Light _light;
-    private float _intensity = 5;
-    public delegate void StatementConsumer(Statement s);
-
-    internal class LightIntensityListener : Listener
+    public class OfficeLight : MonoBehaviour
     {
-        private readonly OfficeLight _outer;
-        private readonly string _resourceName;
-        private readonly string _propertyName;
-        private StatementConsumer _callback;
+        private Light _light;
+        private float _intensity = 5;
 
-        public LightIntensityListener(OfficeLight outer, string resourceName, string propertyName, StatementConsumer callback)
+        void Start()
         {
-            _outer = outer;
-            _resourceName = resourceName;
-            _propertyName = propertyName;
-            _callback = callback;
+            _light = GetComponent<Light>();
+            LCSEndpoint.lcs.registerStatementListener(new ConcreteListener(LCSEndpoint.PREFIX + "meetingRoomLight", LCSEndpoint.PREFIX + "lightHasIntensity", s =>
+            {
+                int val = s.getInt();
+                Debug.Log(val);
+                _intensity = val / 20.0f;
+            }));
         }
 
-        protected override void apply(Statement s)
+        void Update()
         {
-            _callback(s);
-            //int val = s.getInt();
-            //Debug.Log(val);
-            //_outer._intensity = val / 20.0f;
+            _light.intensity = _intensity;
         }
-
-        protected override string propertyName()
-        {
-            return _propertyName;
-        }
-
-        protected override string resourceName()
-        {
-            return _resourceName;
-        }
-    }
-
-    void Start()
-    {
-        _light = GetComponent<Light>();
-        LCSEndpoint.lcs.registerStatementListener(new LightIntensityListener(this, LCSEndpoint.PREFIX + "meetingRoomLight", LCSEndpoint.PREFIX + "lightHasIntensity", s =>
-        {
-            int val = s.getInt();
-            Debug.Log(val);
-            _intensity = val / 20.0f;
-        }));
-    }
-
-    void Update()
-    {
-        _light.intensity = _intensity;
     }
 }
+

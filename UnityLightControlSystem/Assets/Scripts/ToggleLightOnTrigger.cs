@@ -13,14 +13,4 @@ public class ToggleLightOnTrigger : MonoBehaviour {
     {
         _light.enabled = true;
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update () {
-
-    }
 }

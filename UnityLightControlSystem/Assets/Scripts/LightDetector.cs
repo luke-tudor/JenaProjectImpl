@@ -1,57 +1,44 @@
-﻿using com.hp.hpl.jena.rdf.model;
-using jenaInterface;
+﻿using jenaInterface;
 using UnityEngine;
 
-public class LightDetector : MonoBehaviour
+namespace LightControlSystem
 {
-    public Light sunlight;
-
-    private int sign;
-    private StatementChanger changer;
-    private int interval;
-    private int intensity;
-
-    internal class IntegerChanger : LiteralObjectChanger
+    public class LightDetector : MonoBehaviour
     {
-        private readonly int _i;
+        public Light sunlight;
 
-        public IntegerChanger(int i)
+        private int sign;
+        private StatementChanger changer;
+        private int interval;
+        private int intensity;
+
+        void Start()
         {
-            _i = i;
+            sign = -1;
+            changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "lightDetector", LCSEndpoint.PREFIX + "detectLightIntensity");
+            interval = 20;
+            intensity = 100;
         }
 
-        public void apply(Statement s)
+        void Update()
         {
-            s.changeLiteralObject(_i);
-        }
-    }
-
-    void Start()
-    {
-        sign = -1;
-        changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "lightDetector", LCSEndpoint.PREFIX + "detectLightIntensity");
-        interval = 20;
-        intensity = 100;
-    }
-
-    void Update()
-    {
-        if (interval <= 0)
-        {
-            if (sunlight.intensity == 0)
+            if (interval <= 0)
             {
-                sign = 1;
+                if (sunlight.intensity == 0)
+                {
+                    sign = 1;
+                }
+                else if (sunlight.intensity >= 100)
+                {
+                    sign = -1;
+                }
+                intensity += sign;
+                sunlight.intensity = intensity / 100.0f;
+                Debug.Log(intensity);
+                changer.changeLiteralObject(new ConcreteLiteralObjectChanger(s => s.changeLiteralObject(intensity)));
+                interval = 50;
             }
-            else if (sunlight.intensity >= 100)
-            {
-                sign = -1;
-            }
-            intensity += sign;
-            sunlight.intensity = intensity / 100.0f;
-            Debug.Log(intensity);
-            changer.changeLiteralObject(new IntegerChanger(intensity));
-            interval = 50;
+            interval--;
         }
-        interval--;
     }
 }
