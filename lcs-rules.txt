@@ -1,0 +1,20 @@
+@prefix : <http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[: (?z :controlElectricalDeviceGroup ?u) (?x :detectMotion "true"^^xsd:boolean) (?x rdf:type :MotionDetector) (?y :hasMeasurand ?x) (?u :deviceGroupHasSomeDevice ?v) (?y rdf:type :MotionSensor) (?z :controlSensor ?y) -> (?v :isDeviceTurnedOn "true"^^xsd:boolean) ] 
+
+[: (?z :controlElectricalDeviceGroup ?u) (?x :detectMotion "false"^^xsd:boolean) (?x rdf:type :MotionDetector) (?y :hasMeasurand ?x) (?u :deviceGroupHasSomeDevice ?v) (?y rdf:type :MotionSensor) (?z :controlSensor ?y) -> (?v :isDeviceTurnedOn "false"^^xsd:boolean) ] 
+
+//[: (?w :controlElectricalDeviceGroup ?c) (?c rdf:type :LightGroup) (?z :controlSensor ?a) (?a rdf:type :LightSensor) (?a :hasMeasurand ?b) (?b rdf:type :LightDetector) (?c :deviceGroupHasSomeDevice ?d) (?d rdf:type :Light) (?b :detectLightIntensity ?e) difference(?f, "100"^^xsd:int, ?e) -> (?d :lightHasIntensity ?f) ]
+
+[: (:lightDetector :detectLightIntensity ?f) difference("100"^^xsd:int, ?f, ?e) -> (:meetingRoomLight :lightHasIntensity ?e) ]
+//[: (?d rdf:type :MotionDetector), (?d :detectMotion "false"^^xsd:boolean), equal(?d, :meetingRoomMotionDetector) ->  (:meetingRoomLight :isDeviceTurnedOn "false"^^xsd:boolean) ]
+
+//[: (?d rdf:type :MotionDetector), (?d :detectMotion "true"^^xsd:boolean), equal(?d, :meetingRoomMotionDetector) ->  (:meetingRoomLight :isDeviceTurnedOn "true"^^xsd:boolean) ]
+//[motionRule: (?n :hasValue 2) -> (?n :isDeviceTurnedOn true) ]
+
+//[notMotionRule: (?d rdf:type :MotionDetector), (?d :detectMotion false) -> (:meetingRoomLight :isDeviceTurnedOn false) ]

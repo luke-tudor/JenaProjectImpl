@@ -1,0 +1,57 @@
+﻿using com.hp.hpl.jena.rdf.model;
+using jenaInterface;
+using UnityEngine;
+
+public class LightDetector : MonoBehaviour
+{
+    public Light sunlight;
+
+    private int sign;
+    private StatementChanger changer;
+    private int interval;
+    private int intensity;
+
+    internal class IntegerChanger : LiteralObjectChanger
+    {
+        private readonly int _i;
+
+        public IntegerChanger(int i)
+        {
+            _i = i;
+        }
+
+        public void apply(Statement s)
+        {
+            s.changeLiteralObject(_i);
+        }
+    }
+
+    void Start()
+    {
+        sign = -1;
+        changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "lightDetector", LCSEndpoint.PREFIX + "detectLightIntensity");
+        interval = 20;
+        intensity = 100;
+    }
+
+    void Update()
+    {
+        if (interval <= 0)
+        {
+            if (sunlight.intensity == 0)
+            {
+                sign = 1;
+            }
+            else if (sunlight.intensity >= 100)
+            {
+                sign = -1;
+            }
+            intensity += sign;
+            sunlight.intensity = intensity / 100.0f;
+            Debug.Log(intensity);
+            changer.changeLiteralObject(new IntegerChanger(intensity));
+            interval = 50;
+        }
+        interval--;
+    }
+}
