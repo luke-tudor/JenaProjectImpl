@@ -3,14 +3,13 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
-    public class MotionDetector : MonoBehaviour
+    public class RestrictedRoomMotionDetector : MonoBehaviour
     {
-
         private StatementChanger _changer;
 
         void Start()
         {
-            _changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "meetingRoomMotionDetector", LCSEndpoint.PREFIX + "detectMotion");
+            _changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "restrictedRoomMotionDetector", LCSEndpoint.PREFIX + "detectMotion");
         }
 
         private void OnTriggerEnter(Collider other)
