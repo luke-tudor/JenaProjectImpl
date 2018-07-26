@@ -15,11 +15,6 @@ public class StatementChanger {
 		resource = ji.getModel().getResource(resourceName);
 		property = ji.getModel().getProperty(propertyName);
 	}
-	
-//	public void changeLiteralObject(boolean newLiteral) {
-//		ji.getModel().getProperty(resource, property).changeLiteralObject(newLiteral);
-//		ji.updateModel();
-//	}
 
 	public void changeLiteralObject(LiteralObjectChanger literalObjectChanger) {
 		literalObjectChanger.apply(ji.getModel().getProperty(resource, property));

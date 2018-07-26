@@ -437,6 +437,12 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#isInRestrictedRoom -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#isInRestrictedRoom"/>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#lightHasIntensity -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#lightHasIntensity">
@@ -2223,6 +2229,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#alert -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#alert">
+        <isInRestrictedRoom rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isInRestrictedRoom>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#analogSignal -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#analogSignal">
@@ -3539,6 +3553,14 @@
         <receiveSignal rdf:resource="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#analogSignal"/>
         <sendSignal rdf:resource="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#analogSignal"/>
         <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1111</hasId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#restrictedRoomMotionDetector -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#restrictedRoomMotionDetector">
+        <detectMotion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</detectMotion>
     </owl:NamedIndividual>
     
 
