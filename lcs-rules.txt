@@ -9,12 +9,17 @@
 
 [: (?z :controlElectricalDeviceGroup ?u) (?x :detectMotion "false"^^xsd:boolean) (?x rdf:type :MotionDetector) (?y :hasMeasurand ?x) (?u :deviceGroupHasSomeDevice ?v) (?y rdf:type :MotionSensor) (?z :controlSensor ?y) -> (?v :isDeviceTurnedOn "false"^^xsd:boolean) ] 
 
-//[: (?w :controlElectricalDeviceGroup ?c) (?c rdf:type :LightGroup) (?z :controlSensor ?a) (?a rdf:type :LightSensor) (?a :hasMeasurand ?b) (?b rdf:type :LightDetector) (?c :deviceGroupHasSomeDevice ?d) (?d rdf:type :Light) (?b :detectLightIntensity ?e) difference(?f, "100"^^xsd:int, ?e) -> (?d :lightHasIntensity ?f) ]
-
 [: (:lightDetector :detectLightIntensity ?f) difference("100"^^xsd:int, ?f, ?e) -> (:meetingRoomLight :lightHasIntensity ?e) ]
 
-[: (:restrictedRoomMotionDetector :detectMotion "true"^^xsd:boolean) -> (:alert :isInRestrictedRoom "true"^^xsd:boolean) ]
-[: (:restrictedRoomMotionDetector :detectMotion "false"^^xsd:boolean) -> (:alert :isInRestrictedRoom "false"^^xsd:boolean) ]
+[: (:person :hasName ?n) (:restrictedRoomMotionDetector :detectMotion "true"^^xsd:boolean) strConcat("Warning, "^^xsd:string, ?n, " in restricted room!"^^xsd:string, ?o) -> (:alert :hasMessage ?o) ]
+
+[: (:restrictedRoomMotionDetector :detectMotion "false"^^xsd:boolean) -> (:alert :hasMessage ""^^xsd:string) ]
+
+//[: (:restrictedRoomMotionDetector :detectMotion "true"^^xsd:boolean) -> (:alert :isInRestrictedRoom "true"^^xsd:boolean) ]
+//[: (:restrictedRoomMotionDetector :detectMotion "false"^^xsd:boolean) -> (:alert :isInRestrictedRoom "false"^^xsd:boolean) ]
+
+//[: (?w :controlElectricalDeviceGroup ?c) (?c rdf:type :LightGroup) (?z :controlSensor ?a) (?a rdf:type :LightSensor) (?a :hasMeasurand ?b) (?b rdf:type :LightDetector) (?c :deviceGroupHasSomeDevice ?d) (?d rdf:type :Light) (?b :detectLightIntensity ?e) difference(?f, "100"^^xsd:int, ?e) -> (?d :lightHasIntensity ?f) ]
+
 //[: (?d rdf:type :MotionDetector), (?d :detectMotion "false"^^xsd:boolean), equal(?d, :meetingRoomMotionDetector) ->  (:meetingRoomLight :isDeviceTurnedOn "false"^^xsd:boolean) ]
 
 //[: (?d rdf:type :MotionDetector), (?d :detectMotion "true"^^xsd:boolean), equal(?d, :meetingRoomMotionDetector) ->  (:meetingRoomLight :isDeviceTurnedOn "true"^^xsd:boolean) ]

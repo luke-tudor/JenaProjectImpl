@@ -12,16 +12,10 @@ namespace LightControlSystem
         {
             _text = GetComponent<Text>();
             _textString = "";
-            LCSEndpoint.lcs.registerStatementListener(new ConcreteListener(LCSEndpoint.PREFIX + "alert", LCSEndpoint.PREFIX + "isInRestrictedRoom", s =>
+            LCSEndpoint.lcs.registerStatementListener(new ConcreteListener(LCSEndpoint.PREFIX + "alert", LCSEndpoint.PREFIX + "hasMessage", s =>
             {
-                if (s.getBoolean())
-                {
-                    _textString = "Intruder Alert!";
-                }
-                else
-                {
-                    _textString = "";
-                }
+                Debug.Log(s.getString());
+                _textString = s.getString();
             }));
         }
 
