@@ -2270,6 +2270,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#customRoomLight -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#customRoomLight">
+        <isDeviceTurnedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isDeviceTurnedOn>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hallway_1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hallway_1">
@@ -2424,6 +2432,14 @@
         <receiveSignal rdf:resource="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#analogSignal"/>
         <sendSignal rdf:resource="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#analogSignal"/>
         <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int">111</hasId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#lightSwitch -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#lightSwitch">
+        <isDeviceTurnedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isDeviceTurnedOn>
     </owl:NamedIndividual>
     
 
