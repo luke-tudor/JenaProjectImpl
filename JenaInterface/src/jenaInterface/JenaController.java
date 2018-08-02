@@ -16,8 +16,7 @@ import com.hp.hpl.jena.reasoner.rulesys.Rule;
 public class JenaController {
 	
 	private InfModel model;
-	
-	public List<Listener> listeners;
+	private List<Listener> listeners;
 
 	public JenaController(String absolutePathToModel, String rulesURL) {
 		Model m = RDFDataMgr.loadModel(absolutePathToModel);
@@ -38,7 +37,7 @@ public class JenaController {
 		return model;
 	}
 
-	void updateModel() {
+	void notifyListeners() {
 		for (Listener l : listeners) {
 			Statement s = model.getProperty(model.getResource(l.resourceName()), model.getProperty(l.propertyName()));
 			l.apply(s);

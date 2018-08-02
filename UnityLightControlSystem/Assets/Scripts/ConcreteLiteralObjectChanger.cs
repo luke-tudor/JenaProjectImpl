@@ -3,11 +3,11 @@ using jenaInterface;
 
 namespace LightControlSystem
 {
-    public class ConcreteLiteralObjectChanger : LiteralObjectChanger
+    public class ConcreteObjectChanger : ObjectChanger
     {
         private readonly StatementConsumer _callback;
 
-        public ConcreteLiteralObjectChanger(StatementConsumer callback)
+        public ConcreteObjectChanger(StatementConsumer callback)
         {
             _callback = callback;
         }

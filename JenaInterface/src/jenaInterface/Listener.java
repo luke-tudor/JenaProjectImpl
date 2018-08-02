@@ -2,12 +2,12 @@ package jenaInterface;
 
 import com.hp.hpl.jena.rdf.model.Statement;
 
-public abstract class Listener {
+public interface Listener {
 	
-	protected abstract String resourceName();
+	String resourceName();
 	
-	protected abstract String propertyName();
+	String propertyName();
 	
-	protected abstract void apply(Statement result);
+	void apply(Statement result);
 
 }

@@ -25,7 +25,7 @@ namespace LightControlSystem
                 if (MouseRaycastOnButton())
                 {
                     _lightOn = !_lightOn;
-                    _changer.changeLiteralObject(new ConcreteLiteralObjectChanger(s => s.changeLiteralObject(_lightOn)));
+                    _changer.changeObject(new ConcreteObjectChanger(s => s.changeLiteralObject(_lightOn)));
                 }
             }
         }

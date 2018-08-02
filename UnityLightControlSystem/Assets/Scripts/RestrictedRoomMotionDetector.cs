@@ -14,12 +14,12 @@ namespace LightControlSystem
 
         private void OnTriggerEnter(Collider other)
         {
-            _changer.changeLiteralObject(new ConcreteLiteralObjectChanger(s => s.changeLiteralObject(true)));
+            _changer.changeObject(new ConcreteObjectChanger(s => s.changeLiteralObject(true)));
         }
 
         private void OnTriggerExit(Collider other)
         {
-            _changer.changeLiteralObject(new ConcreteLiteralObjectChanger(s => s.changeLiteralObject(false)));
+            _changer.changeObject(new ConcreteObjectChanger(s => s.changeLiteralObject(false)));
         }
     }
 }

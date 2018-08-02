@@ -10,7 +10,7 @@ namespace LightControlSystem
         void Start()
         {
             StatementChanger _changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "person", LCSEndpoint.PREFIX + "hasName");
-            _changer.changeLiteralObject(new ConcreteLiteralObjectChanger(s => s.changeObject(_playerName)));
+            _changer.changeObject(new ConcreteObjectChanger(s => s.changeObject(_playerName)));
         }
     }
 }

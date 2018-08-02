@@ -12,7 +12,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 
 import jenaInterface.JenaController;
 import jenaInterface.Listener;
-import jenaInterface.LiteralObjectChanger;
+import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
 public class RestrictedRoomTest {
@@ -28,7 +28,7 @@ public class RestrictedRoomTest {
 	public void setUp() throws Exception {
 		jenaController = new JenaController(MODEL_LOC, RULES_LOC);
 		StatementChanger personNamer = jenaController.makeStatementChanger(PREFIX + "person", PREFIX + "hasName");
-		personNamer.changeLiteralObject(new LiteralObjectChanger() {
+		personNamer.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {
@@ -45,22 +45,22 @@ public class RestrictedRoomTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "alert";
 			}
 
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "hasMessage";
 			}
 
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertEquals("Warning, Jason in restricted room!", result.getString());
 			}
 
 		});
-		restrictedRoomDetector.changeLiteralObject(new LiteralObjectChanger() {
+		restrictedRoomDetector.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {
@@ -75,22 +75,22 @@ public class RestrictedRoomTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "alert";
 			}
 
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "hasMessage";
 			}
 
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertEquals("", result.getString());
 			}
 
 		});
-		restrictedRoomDetector.changeLiteralObject(new LiteralObjectChanger() {
+		restrictedRoomDetector.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {
@@ -106,22 +106,22 @@ public class RestrictedRoomTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "alert";
 			}
 
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "isInRestrictedRoom";
 			}
 
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertFalse(result.getBoolean());
 			}
 
 		});
-		restrictedRoomDetector.changeLiteralObject(new LiteralObjectChanger() {
+		restrictedRoomDetector.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {
@@ -137,22 +137,22 @@ public class RestrictedRoomTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "alert";
 			}
 
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "isInRestrictedRoom";
 			}
 
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertTrue(result.getBoolean());
 			}
 
 		});
-		restrictedRoomDetector.changeLiteralObject(new LiteralObjectChanger() {
+		restrictedRoomDetector.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {

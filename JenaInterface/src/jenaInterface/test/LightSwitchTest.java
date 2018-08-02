@@ -10,7 +10,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 
 import jenaInterface.JenaController;
 import jenaInterface.Listener;
-import jenaInterface.LiteralObjectChanger;
+import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
 public class LightSwitchTest {
@@ -34,22 +34,22 @@ public class LightSwitchTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "customRoomLight";
 			}
 
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "isDeviceTurnedOn";
 			}
 
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertTrue(result.getBoolean());
 			}
 
 		});
-		lightSwitchChanger.changeLiteralObject(new LiteralObjectChanger() {
+		lightSwitchChanger.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {
@@ -64,22 +64,22 @@ public class LightSwitchTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "customRoomLight";
 			}
 
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "isDeviceTurnedOn";
 			}
 
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertFalse(result.getBoolean());
 			}
 
 		});
-		lightSwitchChanger.changeLiteralObject(new LiteralObjectChanger() {
+		lightSwitchChanger.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {

@@ -16,19 +16,19 @@ namespace LightControlSystem
             _callback = callback;
         }
 
-        protected override void apply(Statement s)
+        public string resourceName()
         {
-            _callback(s);
+            return _resourceName;
         }
 
-        protected override string propertyName()
+        public string propertyName()
         {
             return _propertyName;
         }
 
-        protected override string resourceName()
+        public void apply(Statement s)
         {
-            return _resourceName;
+            _callback(s);
         }
     }
 }

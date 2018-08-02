@@ -10,7 +10,7 @@ import com.hp.hpl.jena.rdf.model.Statement;
 
 import jenaInterface.JenaController;
 import jenaInterface.Listener;
-import jenaInterface.LiteralObjectChanger;
+import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
 public class MeetingRoomLightTest {
@@ -33,22 +33,22 @@ public class MeetingRoomLightTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "meetingRoomLight";
 			}
 			
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "isDeviceTurnedOn";
 			}
 			
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertFalse(result.getBoolean());
 			}
 
 		});
-		motionDetector.changeLiteralObject(new LiteralObjectChanger() {
+		motionDetector.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {
@@ -63,22 +63,22 @@ public class MeetingRoomLightTest {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
-			protected String resourceName() {
+			public String resourceName() {
 				return PREFIX + "meetingRoomLight";
 			}
 			
 			@Override
-			protected String propertyName() {
+			public String propertyName() {
 				return PREFIX + "isDeviceTurnedOn";
 			}
 			
 			@Override
-			protected void apply(Statement result) {
+			public void apply(Statement result) {
 				assertTrue(result.getBoolean());
 			}
 
 		});
-		motionDetector.changeLiteralObject(new LiteralObjectChanger() {
+		motionDetector.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {

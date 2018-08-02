@@ -5,20 +5,19 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 public class StatementChanger {
 	
-	private JenaController ji;
-	
+	private JenaController jc;
 	private Resource resource;
 	private Property property;
 	
-	StatementChanger(JenaController ji, String resourceName, String propertyName) {
-		this.ji = ji;
-		resource = ji.getModel().getResource(resourceName);
-		property = ji.getModel().getProperty(propertyName);
+	StatementChanger(JenaController jc, String resourceName, String propertyName) {
+		this.jc = jc;
+		resource = jc.getModel().getResource(resourceName);
+		property = jc.getModel().getProperty(propertyName);
 	}
 
-	public void changeLiteralObject(LiteralObjectChanger literalObjectChanger) {
-		literalObjectChanger.apply(ji.getModel().getProperty(resource, property));
-		ji.updateModel();
+	public void changeObject(ObjectChanger objectChanger) {
+		objectChanger.apply(jc.getModel().getProperty(resource, property));
+		jc.notifyListeners();
 	}
 
 }
