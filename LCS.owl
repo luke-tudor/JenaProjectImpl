@@ -106,6 +106,12 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasAccessCard -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasAccessCard"/>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasCenterSensor -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasCenterSensor">
@@ -452,6 +458,12 @@
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#isInRestrictedRoom -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#isInRestrictedRoom"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#isOpen -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#isOpen"/>
     
 
 
@@ -2241,6 +2253,20 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#accessCard -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#accessCard"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#accessRoom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#accessRoom">
+        <isOpen rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isOpen>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#alert -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#alert">
@@ -2510,6 +2536,12 @@
         <hasMeasurand rdf:resource="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#meetingRoomMotionDetector"/>
         <hasId rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1111</hasId>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#noCard -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#noCard"/>
     
 
 
@@ -3588,6 +3620,7 @@
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#person -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#person">
+        <hasAccessCard rdf:resource="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#noCard"/>
         <hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></hasName>
     </owl:NamedIndividual>
     

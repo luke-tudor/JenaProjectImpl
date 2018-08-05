@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 
-@Suite.SuiteClasses({ MeetingRoomLightTest.class, LightDetectorTest.class, RestrictedRoomTest.class, LightSwitchTest.class })
+@Suite.SuiteClasses({ MeetingRoomLightTest.class, LightDetectorTest.class, RestrictedRoomTest.class, LightSwitchTest.class, AccessRoomTest.class })
 
 public class LightControlSystemSuite {
 	public static final String PREFIX = "http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#";

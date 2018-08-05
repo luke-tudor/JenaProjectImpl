@@ -17,6 +17,10 @@
 
 [: (:lightSwitch :isDeviceTurnedOn ?b) -> (:customRoomLight :isDeviceTurnedOn ?b) ]
 
+[: (:person :hasAccessCard :accessCard) -> (:accessRoom :isOpen "true"^^xsd:boolean) ]
+
+[: (:person :hasAccessCard ?a) notEqual(?a, :accessCard) -> (:accessRoom :isOpen "false"^^xsd:boolean) ]
+
 //[: (:restrictedRoomMotionDetector :detectMotion "true"^^xsd:boolean) -> (:alert :isInRestrictedRoom "true"^^xsd:boolean) ]
 //[: (:restrictedRoomMotionDetector :detectMotion "false"^^xsd:boolean) -> (:alert :isInRestrictedRoom "false"^^xsd:boolean) ]
 
