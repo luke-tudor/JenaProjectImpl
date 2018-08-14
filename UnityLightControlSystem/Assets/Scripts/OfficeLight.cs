@@ -14,7 +14,7 @@ namespace LightControlSystem
             LCSEndpoint.lcs.registerStatementListener(new ConcreteListener(LCSEndpoint.PREFIX + "meetingRoomLight", LCSEndpoint.PREFIX + "lightHasIntensity", s =>
             {
                 int val = s.getInt();
-                Debug.Log(val);
+                //Debug.Log(val);
                 _intensity = val / 20.0f;
             }));
         }

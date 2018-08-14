@@ -14,7 +14,7 @@ namespace LightControlSystem
             _textString = "";
             LCSEndpoint.lcs.registerStatementListener(new ConcreteListener(LCSEndpoint.PREFIX + "alert", LCSEndpoint.PREFIX + "hasMessage", s =>
             {
-                Debug.Log(s.getString());
+                //Debug.Log(s.getString());
                 _textString = s.getString();
             }));
         }

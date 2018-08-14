@@ -353,6 +353,12 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasFridgeMessage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasFridgeMessage"/>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasGroupType -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasGroupType">
@@ -433,6 +439,12 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasRefill -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasRefill"/>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasServiceName -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasServiceName"/>
@@ -444,6 +456,12 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasSmallDiameter">
         <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasDiameter"/>
     </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasSodaBottlesRemaining -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#hasSodaBottlesRemaining"/>
     
 
 
@@ -2270,6 +2288,7 @@
     <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#alert -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#alert">
+        <hasFridgeMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></hasFridgeMessage>
         <hasMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></hasMessage>
     </owl:NamedIndividual>
     
@@ -3630,6 +3649,22 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#restrictedRoomMotionDetector">
         <detectMotion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</detectMotion>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#sodaFridge -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#sodaFridge">
+        <hasSodaBottlesRemaining rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</hasSodaBottlesRemaining>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#sodaRefillButton -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/2008/9/SensorNetwork_3_4.owl#sodaRefillButton">
+        <hasRefill rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</hasRefill>
     </owl:NamedIndividual>
     
 

@@ -34,7 +34,7 @@ namespace LightControlSystem
                 }
                 intensity += sign;
                 sunlight.intensity = intensity / 100.0f;
-                Debug.Log(intensity);
+                //Debug.Log(intensity);
                 changer.changeObject(new ConcreteObjectChanger(s => s.changeLiteralObject(intensity)));
                 interval = 50;
             }

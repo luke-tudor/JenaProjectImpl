@@ -21,6 +21,18 @@
 
 [: (:person :hasAccessCard ?a) notEqual(?a, :accessCard) -> (:accessRoom :isOpen "false"^^xsd:boolean) ]
 
+//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> (:sodaRefillButton :hasRefill "false"^^xsd:boolean) ]
+
+//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> (:sodaFridge :hasSodaBottlesRemaining 5) ]
+
+//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> [: (:sodaFridge :hasSodaBottlesRemaining 5) <- (:sodaRefillButton :hasRefill "false"^^xsd:boolean) ] ]
+
+//[: (:sodaFridge :hasSodaBottlesRemaining 5) (:sodaRefillButton :hasRefill "false"^^xsd:boolean) <- (:sodaRefillButton :hasRefill "true"^^xsd:boolean) ]
+
+[: (:sodaFridge :hasSodaBottlesRemaining ?n) le(?n, "0"^^xsd:int) -> (:alert :hasFridgeMessage "All soda has run out!"^^xsd:string) ] 
+
+[: (:sodaFridge :hasSodaBottlesRemaining ?n) ge(?n, "1"^^xsd:int) -> (:alert :hasFridgeMessage ""^^xsd:string) ] 
+
 //[: (:restrictedRoomMotionDetector :detectMotion "true"^^xsd:boolean) -> (:alert :isInRestrictedRoom "true"^^xsd:boolean) ]
 //[: (:restrictedRoomMotionDetector :detectMotion "false"^^xsd:boolean) -> (:alert :isInRestrictedRoom "false"^^xsd:boolean) ]
 
