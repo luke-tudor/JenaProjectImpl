@@ -16,7 +16,7 @@ namespace LightControlSystem
         {
             sign = -1;
             changer = LCSEndpoint.lcs.makeStatementChanger(LCSEndpoint.PREFIX + "lightDetector", LCSEndpoint.PREFIX + "detectLightIntensity");
-            interval = 20;
+            interval = 50;
             intensity = 100;
         }
 
@@ -24,11 +24,11 @@ namespace LightControlSystem
         {
             if (interval <= 0)
             {
-                if (sunlight.intensity == 0)
+                if (intensity <= 0)
                 {
                     sign = 1;
                 }
-                else if (sunlight.intensity >= 100)
+                else if (intensity >= 100)
                 {
                     sign = -1;
                 }
