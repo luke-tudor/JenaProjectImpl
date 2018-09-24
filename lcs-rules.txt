@@ -6,41 +6,24 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 [: (?z :controlElectricalDeviceGroup ?u) (?x :detectMotion "true"^^xsd:boolean) (?x rdf:type :MotionDetector) (?y :hasMeasurand ?x) (?u :deviceGroupHasSomeDevice ?v) (?y rdf:type :MotionSensor) (?z :controlSensor ?y) -> (?v :isDeviceTurnedOn "true"^^xsd:boolean) ] 
-
 [: (?z :controlElectricalDeviceGroup ?u) (?x :detectMotion "false"^^xsd:boolean) (?x rdf:type :MotionDetector) (?y :hasMeasurand ?x) (?u :deviceGroupHasSomeDevice ?v) (?y rdf:type :MotionSensor) (?z :controlSensor ?y) -> (?v :isDeviceTurnedOn "false"^^xsd:boolean) ] 
-
 [: (:lightDetector :detectLightIntensity ?f) difference("100"^^xsd:int, ?f, ?e) -> (:meetingRoomLight :lightHasIntensity ?e) ]
-
 [: (:person :hasName ?n) (:restrictedRoomMotionDetector :detectMotion "true"^^xsd:boolean) strConcat("Warning, "^^xsd:string, ?n, " in restricted room!"^^xsd:string, ?o) -> (:alert :hasMessage ?o) ]
-
 [: (:restrictedRoomMotionDetector :detectMotion "false"^^xsd:boolean) -> (:alert :hasMessage ""^^xsd:string) ]
-
 [: (:lightSwitch :isDeviceTurnedOn ?b) -> (:customRoomLight :isDeviceTurnedOn ?b) ]
-
 [: (:person :hasAccessCard :accessCard) -> (:accessRoom :isOpen "true"^^xsd:boolean) ]
-
 [: (:person :hasAccessCard ?a) notEqual(?a, :accessCard) -> (:accessRoom :isOpen "false"^^xsd:boolean) ]
-
-//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> (:sodaRefillButton :hasRefill "false"^^xsd:boolean) ]
-
-//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> (:sodaFridge :hasSodaBottlesRemaining 5) ]
-
-//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> [: (:sodaFridge :hasSodaBottlesRemaining 5) <- (:sodaRefillButton :hasRefill "false"^^xsd:boolean) ] ]
-
-//[: (:sodaFridge :hasSodaBottlesRemaining 5) (:sodaRefillButton :hasRefill "false"^^xsd:boolean) <- (:sodaRefillButton :hasRefill "true"^^xsd:boolean) ]
-
 [: (:sodaFridge :hasSodaBottlesRemaining ?n) le(?n, "0"^^xsd:int) -> (:alert :hasFridgeMessage "All soda has run out!"^^xsd:string) ] 
-
 [: (:sodaFridge :hasSodaBottlesRemaining ?n) ge(?n, "1"^^xsd:int) -> (:alert :hasFridgeMessage ""^^xsd:string) ] 
 
+//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> (:sodaRefillButton :hasRefill "false"^^xsd:boolean) ]
+//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> (:sodaFridge :hasSodaBottlesRemaining 5) ]
+//[: (:sodaRefillButton :hasRefill "true"^^xsd:boolean) -> [: (:sodaFridge :hasSodaBottlesRemaining 5) <- (:sodaRefillButton :hasRefill "false"^^xsd:boolean) ] ]
+//[: (:sodaFridge :hasSodaBottlesRemaining 5) (:sodaRefillButton :hasRefill "false"^^xsd:boolean) <- (:sodaRefillButton :hasRefill "true"^^xsd:boolean) ]
 //[: (:restrictedRoomMotionDetector :detectMotion "true"^^xsd:boolean) -> (:alert :isInRestrictedRoom "true"^^xsd:boolean) ]
 //[: (:restrictedRoomMotionDetector :detectMotion "false"^^xsd:boolean) -> (:alert :isInRestrictedRoom "false"^^xsd:boolean) ]
-
-//[: (?w :controlElectricalDeviceGroup ?c) (?c rdf:type :LightGroup) (?z :controlSensor ?a) (?a rdf:type :LightSensor) (?a :hasMeasurand ?b) (?b rdf:type :LightDetector) (?c :deviceGroupHasSomeDevice ?d) (?d rdf:type :Light) (?b :detectLightIntensity ?e) difference(?f, "100"^^xsd:int, ?e) -> (?d :lightHasIntensity ?f) ]
-
+//[: (?w :controlElectricalDeviceGroup ?c) (?c rdf:type :LightGroup) (?z :controlSensor ?a) (?a rdf:type :LightSensor) (?a :hasMeasurand ?b) (?b rdf:type :LightDetector) (?c :deviceGroupHasSomeDevice ?d) (?d rdf:type :Light) (?b :detectLightIntensity ?e) difference(?f, "100"^^xsd:int, ?e) -> (?d :lightHasIntensity ?f) ] 
 //[: (?d rdf:type :MotionDetector), (?d :detectMotion "false"^^xsd:boolean), equal(?d, :meetingRoomMotionDetector) ->  (:meetingRoomLight :isDeviceTurnedOn "false"^^xsd:boolean) ]
-
 //[: (?d rdf:type :MotionDetector), (?d :detectMotion "true"^^xsd:boolean), equal(?d, :meetingRoomMotionDetector) ->  (:meetingRoomLight :isDeviceTurnedOn "true"^^xsd:boolean) ]
 //[motionRule: (?n :hasValue 2) -> (?n :isDeviceTurnedOn true) ]
-
 //[notMotionRule: (?d rdf:type :MotionDetector), (?d :detectMotion false) -> (:meetingRoomLight :isDeviceTurnedOn false) ]
