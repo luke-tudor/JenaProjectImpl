@@ -18,9 +18,9 @@ public class JenaController {
 	private InfModel model;
 	private List<Listener> listeners;
 
-	public JenaController(String absolutePathToModel, String rulesURL) {
-		Model m = RDFDataMgr.loadModel(absolutePathToModel);
-		Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL(rulesURL));
+	public JenaController(String modelLocation, String rulesLocation) {
+		Model m = RDFDataMgr.loadModel(modelLocation);
+		Reasoner reasoner = new GenericRuleReasoner(Rule.rulesFromURL(rulesLocation));
 		model = ModelFactory.createInfModel(reasoner, m);
 		listeners = new ArrayList<Listener>();
 	}

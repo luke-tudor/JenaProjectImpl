@@ -38,7 +38,7 @@ public class SodaButtonTest {
 	}
 
 	@Test
-	public void testButton() {
+	public void testButtonRefill() {
 		jenaController.registerStatementListener(new Listener() {
 
 			@Override
@@ -82,6 +82,54 @@ public class SodaButtonTest {
 				property.changeLiteralObject(5);
 			}
 			
+		});
+	}
+	
+	@Test
+	public void testButtonNoRefill() {
+		jenaController.registerStatementListener(new Listener() {
+
+			@Override
+			public String resourceName() {
+				return PREFIX + "sodaRefillButton";
+			}
+
+			@Override
+			public String propertyName() {
+				return PREFIX + "hasRefill";
+			}
+
+			@Override
+			public void apply(Statement result) {
+				assertFalse(result.getBoolean());
+			}
+
+		});
+		sodaChanger.changeObject(new ObjectChanger() {
+
+			@Override
+			public void apply(Statement property) {
+				property.changeLiteralObject(5);
+			}
+			
+		});
+		jenaController.registerStatementListener(new Listener() {
+
+			@Override
+			public String resourceName() {
+				return PREFIX + "sodaFridge";
+			}
+
+			@Override
+			public String propertyName() {
+				return PREFIX + "hasSodaBottlesRemaining";
+			}
+
+			@Override
+			public void apply(Statement result) {
+				assertEquals(0, result.getInt());
+			}
+
 		});
 		sodaChanger.changeObject(new ObjectChanger() {
 
