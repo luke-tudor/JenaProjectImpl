@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent light switch. Works by sending a raycast from the cursor to an object like a light switch.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class LightSwitch : MonoBehaviour
     {
         private bool _lightOn;

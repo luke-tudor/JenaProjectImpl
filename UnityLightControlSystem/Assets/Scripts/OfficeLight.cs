@@ -2,6 +2,11 @@
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent office light which is affected by outside sunlight.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class OfficeLight : MonoBehaviour
     {
         private Light _light;
@@ -14,7 +19,6 @@ namespace LightControlSystem
             LCSEndpoint.lcs.registerStatementListener(new ConcreteListener(LCSEndpoint.PREFIX + "meetingRoomLight", LCSEndpoint.PREFIX + "lightHasIntensity", s =>
             {
                 int val = s.getInt();
-                //Debug.Log(val);
                 _intensity = val / 20.0f;
             }));
         }

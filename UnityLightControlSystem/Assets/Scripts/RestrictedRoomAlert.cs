@@ -3,6 +3,11 @@ using UnityEngine.UI;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent the alert message for the restricted room.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class RestrictedRoomAlert : MonoBehaviour
     {
         private Text _text;
@@ -14,7 +19,6 @@ namespace LightControlSystem
             _textString = "";
             LCSEndpoint.lcs.registerStatementListener(new ConcreteListener(LCSEndpoint.PREFIX + "alert", LCSEndpoint.PREFIX + "hasMessage", s =>
             {
-                //Debug.Log(s.getString());
                 _textString = s.getString();
             }));
         }

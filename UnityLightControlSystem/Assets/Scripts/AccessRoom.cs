@@ -2,6 +2,11 @@
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent access room.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class AccessRoom : MonoBehaviour
     {
         private Collider _collider;

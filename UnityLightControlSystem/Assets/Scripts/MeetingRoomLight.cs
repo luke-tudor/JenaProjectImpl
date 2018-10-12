@@ -2,6 +2,11 @@
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent meeting room light which is controlled by the meeting room motion detector.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class MeetingRoomLight : MonoBehaviour
     {
         private Light _light;

@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent the player's name which can be modified from within the unity editor.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class PlayerName : MonoBehaviour
     {
         public string _playerName;

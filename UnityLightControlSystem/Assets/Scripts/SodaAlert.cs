@@ -3,6 +3,11 @@ using UnityEngine.UI;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent the fridge soda alert.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class SodaAlert : MonoBehaviour
     {
         private Text _text;

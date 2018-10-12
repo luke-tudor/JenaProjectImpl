@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent the fridge object.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class SodaFridge : MonoBehaviour
     {
         private Camera _mainCamera;

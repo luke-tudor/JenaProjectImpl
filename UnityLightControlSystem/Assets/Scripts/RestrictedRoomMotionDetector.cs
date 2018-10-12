@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent the restricted room motion detector.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class RestrictedRoomMotionDetector : MonoBehaviour
     {
         private StatementChanger _changer;

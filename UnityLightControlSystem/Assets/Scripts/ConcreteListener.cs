@@ -3,6 +3,11 @@ using jenaInterface;
 
 namespace LightControlSystem
 {
+    /*
+     * C# implementation of Java listener class. C# does not allow anonymous classes so callback functions are used instead.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class ConcreteListener : Listener
     {
         private readonly string _resourceName;

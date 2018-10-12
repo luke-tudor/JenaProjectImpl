@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent a light detector. Actually provides input by working like a clock.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class LightDetector : MonoBehaviour
     {
         public Light sunlight;
@@ -34,7 +39,6 @@ namespace LightControlSystem
                 }
                 intensity += sign;
                 sunlight.intensity = intensity / 100.0f;
-                //Debug.Log(intensity);
                 changer.changeObject(new ConcreteObjectChanger(s => s.changeLiteralObject(intensity)));
                 interval = 50;
             }

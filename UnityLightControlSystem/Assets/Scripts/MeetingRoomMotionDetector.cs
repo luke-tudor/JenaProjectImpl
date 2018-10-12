@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent a motion detector for the meeting room.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class MeetingRoomMotionDetector : MonoBehaviour
     {
         private StatementChanger _changer;

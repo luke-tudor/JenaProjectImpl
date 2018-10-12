@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent access card.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class AccessCard : MonoBehaviour
     {
         void Start()

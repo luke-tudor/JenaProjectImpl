@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace LightControlSystem
 {
+    /*
+     * Class to represent the fridge refill button.
+     * Author: Luke Tudor
+     * Date: October 2018
+     */
     public class SodaRefillButton : MonoBehaviour
     {
         private Camera _mainCamera;
