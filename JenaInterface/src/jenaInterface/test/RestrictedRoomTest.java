@@ -15,6 +15,12 @@ import jenaInterface.Listener;
 import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
+/**
+ * @author Luke Tudor
+ * @version October 2018
+ * @see LightControlSystemSuite
+ *
+ */
 public class RestrictedRoomTest {
 
 	private static final String PREFIX = LightControlSystemSuite.PREFIX;

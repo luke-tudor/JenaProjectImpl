@@ -13,6 +13,12 @@ import jenaInterface.Listener;
 import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
+/**
+ * @author Luke Tudor
+ * @version October 2018
+ * @see LightControlSystemSuite
+ *
+ */
 public class AccessRoomTest {
 
 	private static final String PREFIX = LightControlSystemSuite.PREFIX;
@@ -25,8 +31,7 @@ public class AccessRoomTest {
 	@Before
 	public void setUp() throws Exception {
 		jenaController = new JenaController(MODEL_LOC, RULES_LOC);
-		accessCardChanger = jenaController.makeStatementChanger(PREFIX + "person",
-				PREFIX + "hasAccessCard");
+		accessCardChanger = jenaController.makeStatementChanger(PREFIX + "person", PREFIX + "hasAccessCard");
 	}
 
 	@Test

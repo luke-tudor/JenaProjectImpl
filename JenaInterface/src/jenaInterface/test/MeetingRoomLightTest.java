@@ -13,8 +13,14 @@ import jenaInterface.Listener;
 import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
+/**
+ * @author Luke Tudor
+ * @version October 2018
+ * @see LightControlSystemSuite
+ *
+ */
 public class MeetingRoomLightTest {
-	
+
 	private static final String PREFIX = LightControlSystemSuite.PREFIX;
 	private static final String MODEL_LOC = LightControlSystemSuite.MODEL_LOC;
 	private static final String RULES_LOC = LightControlSystemSuite.RULES_LOC;
@@ -25,7 +31,8 @@ public class MeetingRoomLightTest {
 	@Before
 	public void setUp() throws Exception {
 		jenaController = new JenaController(MODEL_LOC, RULES_LOC);
-		motionDetector = jenaController.makeStatementChanger(PREFIX + "meetingRoomMotionDetector", PREFIX + "detectMotion");
+		motionDetector = jenaController.makeStatementChanger(PREFIX + "meetingRoomMotionDetector",
+				PREFIX + "detectMotion");
 	}
 
 	@Test
@@ -36,12 +43,12 @@ public class MeetingRoomLightTest {
 			public String resourceName() {
 				return PREFIX + "meetingRoomLight";
 			}
-			
+
 			@Override
 			public String propertyName() {
 				return PREFIX + "isDeviceTurnedOn";
 			}
-			
+
 			@Override
 			public void apply(Statement result) {
 				assertFalse(result.getBoolean());
@@ -54,10 +61,10 @@ public class MeetingRoomLightTest {
 			public void apply(Statement property) {
 				property.changeLiteralObject(false);
 			}
-			
+
 		});
 	}
-	
+
 	@Test
 	public void testLightIsOn() {
 		jenaController.registerStatementListener(new Listener() {
@@ -66,12 +73,12 @@ public class MeetingRoomLightTest {
 			public String resourceName() {
 				return PREFIX + "meetingRoomLight";
 			}
-			
+
 			@Override
 			public String propertyName() {
 				return PREFIX + "isDeviceTurnedOn";
 			}
-			
+
 			@Override
 			public void apply(Statement result) {
 				assertTrue(result.getBoolean());
@@ -84,7 +91,7 @@ public class MeetingRoomLightTest {
 			public void apply(Statement property) {
 				property.changeLiteralObject(true);
 			}
-			
+
 		});
 	}
 

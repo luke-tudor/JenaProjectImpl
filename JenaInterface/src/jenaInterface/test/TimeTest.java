@@ -12,6 +12,13 @@ import jenaInterface.Listener;
 import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
+/**
+ * Used to test the time taken to access the ontology.
+ * 
+ * @author Luke Tudor
+ * @version October 2018
+ *
+ */
 public class TimeTest {
 
 	private static final String PREFIX = LightControlSystemSuite.PREFIX;
@@ -20,14 +27,13 @@ public class TimeTest {
 
 	private JenaController jenaController;
 	private StatementChanger lightSwitchChanger;
-	
+
 	private long endTime;
 
 	@Before
 	public void setUp() throws Exception {
 		jenaController = new JenaController(MODEL_LOC, RULES_LOC);
-		lightSwitchChanger = jenaController.makeStatementChanger(PREFIX + "lightSwitch",
-				PREFIX + "isDeviceTurnedOn");
+		lightSwitchChanger = jenaController.makeStatementChanger(PREFIX + "lightSwitch", PREFIX + "isDeviceTurnedOn");
 	}
 
 	@Test
@@ -60,7 +66,7 @@ public class TimeTest {
 			}
 
 		});
-		System.out.println((endTime - startTime)/1000000 + " milliseconds");
+		System.out.println((endTime - startTime) / 1000000 + " milliseconds");
 	}
 
 }

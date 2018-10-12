@@ -12,12 +12,18 @@ import jenaInterface.Listener;
 import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
+/**
+ * @author Luke Tudor
+ * @version October 2018
+ * @see LightControlSystemSuite
+ *
+ */
 public class LightDetectorTest {
-	
+
 	private static final String PREFIX = LightControlSystemSuite.PREFIX;
 	private static final String MODEL_LOC = LightControlSystemSuite.MODEL_LOC;
 	private static final String RULES_LOC = LightControlSystemSuite.RULES_LOC;
-	
+
 	private JenaController jenaController;
 	private StatementChanger lightDetector;
 
@@ -45,7 +51,7 @@ public class LightDetectorTest {
 			public void apply(Statement result) {
 				assertEquals(60, result.getInt());
 			}
-			
+
 		});
 		lightDetector.changeObject(new ObjectChanger() {
 
@@ -53,8 +59,8 @@ public class LightDetectorTest {
 			public void apply(Statement property) {
 				property.changeLiteralObject(40);
 			}
-			
+
 		});
 	}
-	
+
 }

@@ -13,6 +13,12 @@ import jenaInterface.Listener;
 import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
+/**
+ * @author Luke Tudor
+ * @version October 2018
+ * @see LightControlSystemSuite
+ *
+ */
 public class SodaButtonTest {
 
 	private static final String PREFIX = LightControlSystemSuite.PREFIX;
@@ -25,15 +31,14 @@ public class SodaButtonTest {
 	@Before
 	public void setUp() throws Exception {
 		jenaController = new JenaController(MODEL_LOC, RULES_LOC);
-		sodaChanger = jenaController.makeStatementChanger(PREFIX + "sodaFridge",
-				PREFIX + "hasSodaBottlesRemaining");
+		sodaChanger = jenaController.makeStatementChanger(PREFIX + "sodaFridge", PREFIX + "hasSodaBottlesRemaining");
 		sodaChanger.changeObject(new ObjectChanger() {
 
 			@Override
 			public void apply(Statement property) {
 				property.changeLiteralObject(0);
 			}
-			
+
 		});
 	}
 
@@ -81,10 +86,10 @@ public class SodaButtonTest {
 			public void apply(Statement property) {
 				property.changeLiteralObject(5);
 			}
-			
+
 		});
 	}
-	
+
 	@Test
 	public void testButtonNoRefill() {
 		jenaController.registerStatementListener(new Listener() {
@@ -111,7 +116,7 @@ public class SodaButtonTest {
 			public void apply(Statement property) {
 				property.changeLiteralObject(5);
 			}
-			
+
 		});
 		jenaController.registerStatementListener(new Listener() {
 
@@ -137,7 +142,7 @@ public class SodaButtonTest {
 			public void apply(Statement property) {
 				property.changeLiteralObject(0);
 			}
-			
+
 		});
 	}
 

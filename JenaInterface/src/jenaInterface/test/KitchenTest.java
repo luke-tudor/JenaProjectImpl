@@ -12,6 +12,12 @@ import jenaInterface.Listener;
 import jenaInterface.ObjectChanger;
 import jenaInterface.StatementChanger;
 
+/**
+ * @author Luke Tudor
+ * @version October 2018
+ * @see LightControlSystemSuite
+ *
+ */
 public class KitchenTest {
 
 	private static final String PREFIX = LightControlSystemSuite.PREFIX;
@@ -24,8 +30,7 @@ public class KitchenTest {
 	@Before
 	public void setUp() throws Exception {
 		jenaController = new JenaController(MODEL_LOC, RULES_LOC);
-		sodaChanger = jenaController.makeStatementChanger(PREFIX + "sodaFridge",
-				PREFIX + "hasSodaBottlesRemaining");
+		sodaChanger = jenaController.makeStatementChanger(PREFIX + "sodaFridge", PREFIX + "hasSodaBottlesRemaining");
 	}
 
 	@Test
